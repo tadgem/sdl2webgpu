@@ -49,7 +49,8 @@ WGPUSurface sdl2GetWGPUSurface(WGPUInstance instance, SDL_Window *window)
 #endif
 #endif
 
-    WGPUSurfaceDescriptor surface_desc = {};
+    WGPUSurfaceDescriptor surface_desc;
+    surface_desc.label = NULL;
     surface_desc.nextInChain = &native_surface.chain;
     return wgpuInstanceCreateSurface(instance, &surface_desc);
 }
